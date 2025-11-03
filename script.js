@@ -95,26 +95,38 @@ function move() {
 
 
 	// ------------- Рисуется дорога 
+	// ctx.beginPath();
+	// for (let i = 0; i <= roadLine.length; i++) {
+	// 	if ('M' == roadLine[i]) {
+	// 		ctx.moveTo(roadLine[i + 1], roadLine[i + 2]);
+	// 	}
+	// 	else if ('C' == roadLine[i]) {
+	// 		ctx.bezierCurveTo(roadLine[i + 1], roadLine[i + 2], roadLine[i + 3], roadLine[i + 4], roadLine[i + 5], roadLine[i + 6]);
+	// 	}
+	// 	else if ('L' == roadLine[i]) {
+	// 		ctx.lineTo(roadLine[i + 1], roadLine[i + 2]);
+	// 	}
+	// 	else if ('Z' == roadLine[i]) {
+	// 		ctx.lineTo(roadLine[1], roadLine[2]);
+	// 	}
+	// }
+	// ctx.lineWidth = 3;
+	// ctx.strokeStyle = 'rgb(70, 163, 224)';
+	// ctx.stroke();
+	// ctx.closePath();
+
+
+
+	// --------------
 	ctx.beginPath();
-	for (let i = 0; i <= roadLine.length; i++) {
-		if ('M' == roadLine[i]) {
-			ctx.moveTo(roadLine[i + 1], roadLine[i + 2]);
-		}
-		else if ('C' == roadLine[i]) {
-			ctx.bezierCurveTo(roadLine[i + 1], roadLine[i + 2], roadLine[i + 3], roadLine[i + 4], roadLine[i + 5], roadLine[i + 6]);
-		}
-		else if ('L' == roadLine[i]) {
-			ctx.lineTo(roadLine[i + 1], roadLine[i + 2]);
-		}
-		else if ('Z' == roadLine[i]) {
-			ctx.lineTo(roadLine[1], roadLine[2]);
-		}
+	ctx.moveTo(indexPath[0].x, indexPath[0].y);
+	for (let i = 0; i <= indexPath.length - 1; i++) {
+		ctx.lineTo(indexPath[i].x, indexPath[i].y);		
 	}
 	ctx.lineWidth = 3;
 	ctx.strokeStyle = 'rgb(70, 163, 224)';
 	ctx.stroke();
 	ctx.closePath();
-	// --------------
 	// ------------- Рисуется остановка
 	station();
 
@@ -196,4 +208,5 @@ setInterval(() => {
 }, 1000);
 
 // console.log(b203);
-console.log('roadLine: ' + roadLine);
+// console.log('roadLine: ' + roadLine);
+// console.log(points);
